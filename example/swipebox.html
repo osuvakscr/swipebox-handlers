@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="A touchable jQuery lightbox plugin for desktop, mobile and tablet" />
+        <meta property="og:site_name" content="Swipebox" />
+        <meta property="og:url" content="http://brutaldesign.github.com/swipebox/" />
+        <meta property="og:image" content="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AAD1pNcX_zM2_eip8hgYjdjna/20150404_2233/publish/img/swipe250.jpg" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Swipebox | A touchable jQuery lightbox" />
+        <meta property="og:description" content="Swipebox is a jQuery lightbox plugin for desktop, mobile and tablet">
+        <meta itemprop="name" content="Swipebox | A touchable jQuery lightbox">
+        <meta itemprop="image" content="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AAD1pNcX_zM2_eip8hgYjdjna/20150404_2233/publish/img/swipe250.jpg">
+        <meta itemprop="description" content="Swipebox is a jQuery lightbox plugin for desktop, mobile and tablet">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Merriweather:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AACepl2_9aVef-c513_IaWtYa/20150404_2233/publish/demo/normalize.css">
+        <link rel="stylesheet" href="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AADnNnSkiTPCyxzl3NsKc9uTa/20150404_2233/publish/demo/bagpakk.min.css">
+        <link rel="stylesheet" href="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AADcm3UFURgnEnxrYJsQuVhma/20150404_2233/publish/demo/style.css">
+        <link rel="stylesheet" href="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AACY-qEMAAub-MemnNalUVEqa/20150404_2233/publish/src/css/swipebox.css">
+        <title>Swipebox | A touchable jQuery lightbox</title>
+</head>
+<body>
+        <section id="advanced-usage" class="container">
+                        <div id="dynamic"></div>
+                        <center><h3>Swipebox Loader</h3></center>
+                        
+                        <!--<center><button id="gallery" href="#" style="width:300px;height:100px;">View gallery</button></center>-->
+                        <center><input id="gallery" href="#" type="image" style="width:250px;" src="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AABR7PTSKMOKFWwwSerJjn3aa/20150404_2233/publish/img/blue-button-hi.png" /></center>
+        </section>
+
+
+        <script src="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AAD3PpfIUITTwUYw-YtL4CDHa/20150404_2233/publish/lib/ios-orientationchange-fix.js"></script>
+        <script src="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AABQ8-rItJGucd8S836-B_4Ka/20150404_2233/publish/lib/jquery-2.1.0.min.js"></script>
+        <script src="https://dl.dropbox.com/sh/iwrhwxw9ygax5wj/AACwrXOjvQtQSYOmTEFCFrooa/20150404_2233/publish/src/js/jquery.swipebox.js"></script>
+        <script type="text/javascript">
+        $( document ).ready(function() {
+
+                        /* Dynamic Gallery */
+                        $( '#gallery' ).click( function( e ) {
+                                e.preventDefault();
+
+var sz = 1
+var x = Math.floor((Math.random() * (sz+1-1)));
+$.swipebox(
+[
+{ href : 'http://icube.milliyet.com.tr/D/i/_SubV2/milliyet-logo.png' , title : 'p' }
+,
+{ href : 'http://i.milliyet.com.tr/825x335/2016/08/09/son-dakika-haberi-erdogan-ve-putin-den-ilk-aciklamalar-7470929.Jpeg' , title : 'p' }
+]
+,
+{
+initialIndexOnArray : x ,
+loopAtEnd: true ,
+hideCloseButtonOnMobile : true ,
+beforeOpen: function() {launchFullscreen(document.documentElement);} ,
+afterClose: function() {exitFullscreen();}
+}
+);
+                        } );
+
+        });
+        
+        // Find the right method, call on correct element
+        function launchFullscreen(element) {
+          if(element.requestFullscreen) {
+            element.requestFullscreen();
+          } else if(element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+          } else if(element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+          } else if(element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+          }
+        }
+
+        function exitFullscreen() {
+          if(document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if(document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if(document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+          }
+        }        
+        
+        </script>
+</body>
+        
+</html>
+ 
